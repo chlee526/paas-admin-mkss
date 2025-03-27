@@ -1,0 +1,89 @@
+@import '@shared/styles/base/color_set.scss';
+#wrap {
+    #content {
+        > main {
+            .ui_brd {
+                &.custom-style {
+                    table {
+                        > tbody {
+                            > tr:not(.is-no-over) {
+                                &:not(.is-active) {
+                                    > td {
+                                        background: #fff;
+                                    }
+                                }
+                                > td {
+                                    line-height: 16px;
+                                    padding: 8px 10px;
+                                    border-right: 1px solid rgba(0, 0, 0, 0.08);
+                                    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+                                    &.is-keep-all {
+                                        word-break: keep-all;
+                                        white-space: unset;
+                                    }
+                                    &.line-height-em {
+                                        line-height: 1.2em;
+                                    }
+                                    &.is-warning {
+                                        background: #ffe7e7;
+                                    }
+                                    &.is-complete {
+                                        background: #c8ebfa;
+                                    }
+                                    &.is-edited {
+                                        background: #edffe7;
+                                    }
+                                    span {
+                                        &.is-color-blue {
+                                            color: #7487e5;
+                                        }
+                                    }
+                                }
+                                &:first-child {
+                                    td {
+                                        &:not([rowspan]) {
+                                            padding-top: 0;
+                                            padding-bottom: 0;
+                                            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+                                        }
+                                        &:last-child {
+                                            border-right: none;
+                                        }
+                                    }
+                                }
+                                &.is-no-padding {
+                                    > td {
+                                        padding-top: 0;
+                                        padding-bottom: 0;
+                                    }
+                                }
+                            }
+
+                            &:nth-child(2n) {
+                                > tr:not(.is-active) {
+                                    > td:not(.is-warning):not(.is-complete):not(.is-edited) {
+                                        background: $board_bg_color_even;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &:not(.is-no-over):not(.is-data):not(.is-data-v2) {
+                        > .wrap {
+                            > table {
+                                > tbody:hover:not(.is-no-over) {
+                                    > tr:not(.is-active) {
+                                        > td:not(.is-no-over):not(.no-data):not(.is-warning):not(.is-complete):not(.is-edited) {
+                                            background: $board_bg_color_hover;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

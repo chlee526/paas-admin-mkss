@@ -1,0 +1,38 @@
+@import '@shared/styles/base/color_set.scss';
+@import '@shared/styles/util/mixins.scss';
+
+.ui_pagination {
+    display: flex;
+    align-items: center;
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        @include transition();
+
+        &[disabled] {
+            color: $component_font_color_disabled;
+        }
+        &:hover:not([disabled]) {
+            background: #e7e7e7;
+        }
+
+        .icon {
+            font-family: 'icomoon';
+            font-size: 15px;
+        }
+    }
+    .info {
+        margin: 0 5px;
+        .current_page {
+            color: var(--primary);
+        }
+        span {
+            margin: 0 4px;
+        }
+    }
+}

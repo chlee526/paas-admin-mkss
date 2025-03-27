@@ -1,0 +1,140 @@
+@import '@shared/styles/base/color_set.scss';
+
+@mixin boldBorderBottom() {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+@mixin slimBorderBottom() {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+#wrap {
+    #content {
+        > main {
+            .ui_brd.custom-style {
+                table {
+                    > tbody:not(.is-no-over) {
+                        > tr {
+                            > td {
+                                line-height: 16px;
+                                padding: 8px 10px;
+                                border-right: 1px solid rgba(0, 0, 0, 0.08);
+                                @include slimBorderBottom();
+
+                                &.is-keep-all {
+                                    word-break: keep-all;
+                                    white-space: unset;
+                                }
+                                &.line-height-em {
+                                    line-height: 1.2em;
+                                }
+                                &.is-total {
+                                    background: #5a626724;
+                                }
+
+                                &.is-over {
+                                    background: $board_bg_color_hover;
+                                    font-weight: bold;
+
+                                    &.is-total {
+                                        background: #d6d6d6;
+                                    }
+                                }
+                            }
+                            &:first-child {
+                                > td {
+                                    &:first-child {
+                                        @include boldBorderBottom();
+                                    }
+                                    &:last-child {
+                                        border-right: none;
+                                        @include boldBorderBottom();
+                                    }
+                                }
+                            }
+                            &:last-child {
+                                > td {
+                                    @include boldBorderBottom();
+                                }
+                            }
+
+                            // &:hover {
+                            //     > th,
+                            //     > td {
+                            //         &:not(:first-child),
+                            //         &:not(:last-child) {
+                            //             background: red !important;
+                            //         }
+                            //     }
+                            // }
+                        }
+                        &:not(.is-no-over) {
+                            &:last-child {
+                                > tr {
+                                    > td {
+                                        background-color: #00000024;
+                                        border-bottom: none;
+                                    }
+                                }
+                            }
+                        }
+                        &:nth-last-child(2) {
+                            > tr {
+                                &:first-child {
+                                    > td {
+                                        &:first-child {
+                                            @include slimBorderBottom();
+                                        }
+                                        &:last-child {
+                                            border-right: none;
+                                            @include slimBorderBottom();
+                                        }
+                                    }
+                                }
+                                &:last-child {
+                                    > td {
+                                        @include slimBorderBottom();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:not(.is-no-over):not(.is-data):not(.is-data-v2) {
+                    > .wrap {
+                        > table {
+                            > tbody:hover:not(.is-no-over):not(:last-child) {
+                                > tr {
+                                    // > td:not(.is-no-over):not(.no-data) {
+                                    //     background: $board_bg_color_hover;
+                                    // }
+                                    // > td:not(.is-no-over):not(.no-data).is-total {
+                                    //     background: #d6d6d6;
+                                    // }
+
+                                    // &:hover {
+                                    //     > td:not(.is-no-over):not(.no-data):not([rowspan]) {
+                                    //         background: $board_bg_color_hover;
+                                    //         font-weight: bold;
+
+                                    //         &.is-total {
+                                    //             background: #d6d6d6;
+                                    //         }
+                                    //     }
+                                    // }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.is-lnb #container #content .contents .ui_row .ui_col .ui_box .ui_brd.custom-style {
+        table {
+            > thead {
+                // 헤더 높이
+                top: 46px !important;
+            }
+        }
+    }
+}

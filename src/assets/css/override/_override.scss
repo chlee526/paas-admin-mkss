@@ -1,0 +1,17 @@
+#wrap {
+    > .appContainerWrap {
+        > #container.page-login {
+            > #content {
+                flex: 0 0;
+            }
+        }
+    }
+}
+
+#wrap.is-lnb {
+    > .appContainerWrap {
+        > #container {
+            flex-direction: column !important;
+        }
+    }
+}

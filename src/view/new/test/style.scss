@@ -1,0 +1,82 @@
+@import '@shared/styles/base/color_set.scss';
+#wrap {
+    #content {
+        > main {
+            .ui_brd.custom-style {
+                table {
+                    > thead {
+                        // 헤더 높이
+                        top: 40px !important;
+                    }
+                    > tbody:not(.is-no-over) {
+                        > tr {
+                            > td {
+                                line-height: 16px;
+                                padding: 8px 10px;
+                                border-right: 1px solid rgba(0, 0, 0, 0.08);
+                                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+                                background: #fff;
+
+                                &.is-keep-all {
+                                    word-break: keep-all;
+                                    white-space: unset;
+                                }
+                                &.line-height-em {
+                                    line-height: 1.2em;
+                                }
+                                &.is-total {
+                                    background: #74bae524;
+                                }
+                            }
+                            &:first-child {
+                                > td {
+                                    &:last-child {
+                                        border-right: none;
+                                    }
+                                }
+                            }
+                        }
+                        &:nth-child(2n) {
+                            > tr {
+                                > td:not(.is-total) {
+                                    background: $board_bg_color_even;
+                                }
+                            }
+                        }
+                        &:not(.is-no-over) {
+                            &:last-child {
+                                > tr {
+                                    > td {
+                                        background-color: #74bae557;
+                                        border-bottom: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:not(.is-no-over):not(.is-data):not(.is-data-v2) {
+                    > .wrap {
+                        > table {
+                            > tbody:hover:not(.is-no-over):not(:last-child) {
+                                > tr {
+                                    > td:not(.is-no-over):not(.no-data):not(.is-total) {
+                                        background: $board_bg_color_hover;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.is-lnb #container #content .contents .ui_row .ui_col .ui_box .ui_brd.custom-style {
+        table {
+            > thead {
+                // 헤더 높이
+                top: 0 !important;
+            }
+        }
+    }
+}

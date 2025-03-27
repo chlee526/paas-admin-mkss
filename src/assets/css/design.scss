@@ -1,0 +1,148 @@
+/*
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * 공용(Shared/Override)
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+*/
+@import '@shared/styles/styles.scss'; // Base(Variables, Mixins, Normalize, Reset, Font, ColorSet)
+
+/*******************************************************************************/
+/*******************************************************************************/
+/*****  OVERIDE ****************************************************************/
+@import './override/color_set'; // Override
+@import './override/override'; // Override
+/*****  OVERIDE ****************************************************************/
+/*******************************************************************************/
+/*******************************************************************************/
+
+/* 레이아웃 */
+@import '@shared/layout/styles.scss'; // Layout, Grid, Header, Footer,
+
+/* UI */
+@import '@shared/styles/ui/styles.scss';
+
+/* Project Scss to JS Export Module */
+@import './override/export.module.scss'; // Override
+
+/* Component */
+@import '@shared/ui/styles.scss';
+
+// Template
+@import '@shared/templates/styles.scss';
+
+/*  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+ * 프로젝트 전용
+ ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+/* VIEW > Page */
+#wrap {
+    #container {
+        &.page-error {
+            #content {
+                display: block;
+            }
+        }
+        #content {
+            display: flex;
+            justify-content: space-between;
+            .contents {
+                position: static;
+                .ui_row {
+                    position: static;
+                    max-width: none;
+                    padding: 0;
+                    .ui_col {
+                        position: static;
+                        .ui_box {
+                            position: static;
+                            .ui_function {
+                                flex-wrap: wrap;
+                                position: sticky;
+                                top: 40px;
+                                z-index: 6;
+                                background-color: #f7f7f7;
+                            }
+                            .content {
+                                position: static;
+                                .ui_brd > .wrap {
+                                    overflow: unset;
+                                    position: static;
+                                    > table {
+                                        > thead {
+                                            // 헤더 높이 + ui_function높이
+                                            top: calc(40px + 46px);
+                                            z-index: 4;
+                                        }
+                                        > tbody {
+                                            > tr {
+                                                > td {
+                                                    // 성능향상을 위해 transition 제거
+                                                    @include transition(0);
+
+                                                    &:hover {
+                                                        a {
+                                                            > span {
+                                                                text-decoration: underline;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .dcp.checkbox:not(.is-btn):not(.dcp.radio.is-box):not(.dcp_chkboxs.is-box):not(.dcp.checkbox.is-box):not(.is-box) > input[type='checkbox'] + label .icon {
+                                            @include transition(0);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            > main {
+                flex-grow: 1;
+                padding: 0 20px;
+
+                .dcp.inputBox.is-custom-border-color {
+                    input {
+                        border-color: #76b0fc;
+                    }
+                }
+            }
+            > aside {
+                width: 25%;
+                flex-basis: 25%;
+                padding: 32px 20px 0 0;
+            }
+        }
+    }
+    &.is-lnb {
+        #container {
+            #content {
+                .contents {
+                    .ui_row {
+                        .ui_col {
+                            .ui_box {
+                                .ui_function {
+                                    top: 0;
+                                    > * {
+                                        white-space: nowrap;
+                                    }
+                                }
+                                .content {
+                                    .ui_brd > .wrap {
+                                        > table {
+                                            > thead {
+                                                //  ui_function높이
+                                                top: calc(40px);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* vendors(외부 라이브러리 스타일) */
